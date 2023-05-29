@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    canvas {
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Attendance Report</h2>
+  <canvas id="attendanceChart"></canvas>
+
+  <script>
+    // Retrieve the attendance data from localStorage
+    const selectedDivision = localStorage.getItem("selectedDivision");
+    const selectedStudent = localStorage.getItem("selectedStudent");
+    const selectedAttendance = localStorage.getItem("selectedAttendance");
+
+    // Check if the attendance data exists
+    if (selectedDivision && selectedStudent && selectedAttendance) {
+      // Update the attendance count in the graph based on the submitted data
+      const attendanceChart = new Chart(document.getElementById("attendanceChart"), {
+        type: "bar",
+        data: {
+          labels: ["Student 1", "Student 2", "Student 3", "Student 4", "Student 5", "Student 6", "Student 7", "Student 8", "Student 9", "Student 10"],
+          datasets: [{
+            label: "Attendance",
+            data: [7, 8, 3, 8, 1, 8, 5, 12, 8, 9],
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              stepSize: 1
+            }
+          }
+        }
+      });
+
+      // Update the attendance count for the selected student
+      const studentIndex = parseInt(selectedStudent.slice(-1)) - 1;
+      attendanceChart.data.datasets[0].data[studentIndex] = parseInt(selectedAttendance);
+      attendanceChart.update();
+    }
+  </script>
+</body>
+</html>

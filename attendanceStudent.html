@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="attendanceChart" width="20px" height="5px"></canvas>
+
+  <script>
+    // Sample data for Student 1
+    var overallAttendance = 80; // Overall attendance percentage
+    var attendanceCount = 15; // Attendance count
+
+    // Get the canvas element
+    var ctx = document.getElementById("attendanceChart").getContext("2d");
+
+    // Create the bar chart
+    var chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Overall Attendance", "Attendance Count"],
+        datasets: [
+          {
+            label: "Student 1",
+            data: [overallAttendance, attendanceCount],
+            backgroundColor: ["rgba(75, 192, 192, 0.2)", "rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)"],
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100 // Set the maximum value for y-axis
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

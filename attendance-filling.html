@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Filling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    select {
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Attendance Filling</h2>
+    <form id="attendanceForm">
+      <!-- Dropdown menu to select the division -->
+      <label for="division">Select Division:</label>
+      <select id="division" name="division">
+        <option value="A">Division A</option>
+        <option value="B">Division B</option>
+      </select>
+
+      <!-- Dropdown menu to select the student -->
+      <label for="student">Select Student:</label>
+      <select id="student" name="student">
+        <option value="student1">Student 1</option>
+        <option value="student2">Student 2</option>
+        <option value="student3">Student 3</option>
+        <option value="student4">Student 4</option>
+        <option value="student5">Student 5</option>
+        <option value="student6">Student 6</option>
+        <option value="student7">Student 7</option>
+        <option value="student8">Student 8</option>
+        <option value="student9">Student 9</option>
+        <option value="student10">Student 10</option>
+      </select>
+
+      <!-- Dropdown menu to select the attendance -->
+      <label for="attendance">Select Attendance:</label>
+      <select id="attendance" name="attendance">
+        <option value="0">Absent</option>
+        <option value="1">Present</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    // Function to handle form submission
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the selected division, student, and attendance values
+      const divisionSelect = document.getElementById("division");
+      const studentSelect = document.getElementById("student");
+      const attendanceSelect = document.getElementById("attendance");
+      const division = divisionSelect.value;
+      const student = studentSelect.value;
+      const attendance = attendanceSelect.value;
+
+      // Store the attendance data in localStorage
+      localStorage.setItem("selectedDivision", division);
+      localStorage.setItem("selectedStudent", student);
+      localStorage.setItem("selectedAttendance", attendance);
+
+      // Redirect to attendance-report.html
+      window.location.href = "attendance-report.html";
+    }
+
+    // Add event listener to the form submit event
+    const form = document.getElementById("attendanceForm");
+    form.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>

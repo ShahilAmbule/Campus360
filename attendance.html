@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("bc.jpg");
+      background-size: cover;
+      background-position: center 1000px; /* Adjust the value to move the image lower */
+    }
+
+    #sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #sidebar li {
+      margin-bottom: 10px;
+    }
+
+    #sidebar a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .button {
+      position: relative;
+      width: 200px;
+      height: 50px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .button:hover::before {
+      opacity: 1;
+    }
+
+    .button span {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: #f1f1f1;
+      color: #333;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover span {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="attendance-report.html">Attendance Report</a></li>
+      <li><a href="attendance-filling.html">Attendance Filling</a></li>
+    </ul>
+  </div>
+  
+  <div class="button-container">
+    <div class="button" onclick="location.href='attendance-filling.html'">
+      <span>Attendance Filling</span>
+    </div>
+    <div class="button" onclick="location.href='attendance-report.html'">
+      <span>Attendance Report</span>
+    </div>
+  </div>
+</body>
+</html>

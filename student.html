@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("bc.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #sidebar li {
+      margin-bottom: 10px;
+    }
+
+    #sidebar a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #f1f1f1;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .button img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+    </ul>
+  </div>
+  
+  <div class="button-container">
+    <div class="button">
+      <img src="Admin-setup.jpg" alt="Admin-Setup">
+      <span>Admin Setup</span>
+    </div>
+    <div class="button">
+      <img src="academic-setup.jpg" alt="Academic Setup">
+      <span>Academic Setup</span>
+    </div>
+    <div class="button">
+      <img src="user-management.jpg" alt="User Management">
+      <span>User Management</span>
+    </div>
+    <div class="button">
+      <img src="fees.jpg" alt="Fees">
+      <span>Fees</span>
+    </div>
+    <div class="button" onclick="location.href='attendanceStudent.html'">
+      <img src="attendance.jpg" alt="Attendance">
+      <span>Student Attendance</span>
+    </div>
+    <div class="button">
+      <img src="academic-history.jpg" alt="Academic History">
+      <span>Academic History</span>
+    </div>
+  </div>
+</body>
+</html>
